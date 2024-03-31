@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lịch làm việc theo quý và năm</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    .calendar {
+        width: 100%;
+        max-width: 800px;
+        margin: auto;
+        padding: 20px;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: center;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    .view-more-btn {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+    .view-more-btn:hover {
+        background-color: #0056b3;
+    }
+</style>
+</head>
+<body>
+
+<div class="calendar">
+    <h2>Lịch làm việc theo quý và năm</h2>
+    <div>
+        <label for="year">Năm:</label>
+        <input type="number" id="year" min="1900" max="3000" value="2024">
+        <select id="quarter">
+            <option value="1">Quý 1</option>
+            <option value="2">Quý 2</option>
+            <option value="3">Quý 3</option>
+            <option value="4">Quý 4</option>
+        </select>
+        <button onclick="displayCalendar()">Hiển thị</button>
+    </div>
+    <table id="calendarTable">
+        <thead>
+            <tr>
+                <th>Thời gian</th>
+                <th>Giai đoạn</th>
+                <th>Công việc</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody id="calendarBody">
+            <!-- Nội dung lịch sẽ được thêm ở đây -->
+        </tbody>
+    </table>
+</div>
+
+<script>
+    function displayCalendar() {
+        var year = document.getElementById('year').value;
+        var quarter = document.getElementById('quarter').value;
+
+        var calendarBody = document.getElementById('calendarBody');
+        calendarBody.innerHTML = ''; // Xóa nội dung cũ
+
+        var quarterRanges = getQuarterRanges(year, quarter);
+
+        for (var i = 0; i < quarterRanges.length; i++) {
+            var row = calendarBody.insertRow();
+            var cellTime = row.insertCell();
+            var cellStage = row.insertCell();
+            var cellTask = row.insertCell();
+            var cellViewMore = row.insertCell();
+
+            var timeInput = document.createElement("input");
+            timeInput.type = "text";
+            timeInput.placeholder = "Nhập thời gian";
+            cellTime.appendChild(timeInput);
+
+            var stageInput = document.createElement("input");
+            stageInput.type = "text";
+            stageInput.value = "Giai đoạn " + (i + 1);
+            stageInput.disabled = true;
+            cellStage.appendChild(stageInput);
+
+            var taskInput = document.createElement("input");
+            taskInput.type = "text";
+            taskInput.placeholder = "Nhập công việc";
+            cellTask.appendChild(taskInput);
+
+            var viewMoreButton = document.createElement("button");
+            viewMoreButton.textContent = "Xem thêm";
+            viewMoreButton.className = "view-more-btn";
+            viewMoreButton.onclick = function() {
+                alert("Hiển thị thông tin chi tiết công việc"); // Thay alert bằng logic hiển thị thông tin chi tiết công việc
+            };
+            cellViewMore.appendChild(viewMoreButton);
+        }
+    }
+
+    function getQuarterRanges(year, quarter) {
+        // Giả sử mỗi quý có 3 giai đoạn
+        var ranges = [];
+        for (var i = 0; i < 3; i++) {
+            ranges.push("Giai đoạn " + (i + 1));
+        }
+        return ranges;
+    }
+
+    displayCalendar(); // Gọi hàm để hiển thị lịch
+
+</script>
+
+</body>
+</html>
