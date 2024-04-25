@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task Tracker</title>
+<style>
+    body {
+        background-image: url('https://news.khangz.com/wp-content/uploads/2023/12/Kiem-tra-toc-do-danh-may-1-2.jpg');
+        background-size: cover;
+        background-position: center;
+        font-family: Arial, sans-serif;
+    }
+    .task-container {
+        width: 80%;
+        margin: 20px auto;
+        background-color: #1d20f1;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .task {
+        margin-bottom: 20px;
+        padding: 10px;
+        background-color: #2719eb;
+        border-radius: 4px;
+    }
+    .task-name {
+        font-weight: bold;
+    }
+    .progress-bar {
+        width: 100%;
+        background-color: #5129e4;
+        height: 20px;
+        border-radius: 4px;
+        overflow: hidden;
+    }
+    .progress {
+        width: 0;
+        height: 100%;
+        background-color: #4caf50;
+    }
+</style>
+</head>
+<body>
+<div class="task-container">
+    <div class="task">
+        <div class="task-name">khảo sát nhu cầu khách hàng</div>
+        <div class="progress-bar">
+            <div class="progress" style="width: 60%;"></div>
+        </div>
+    </div>
+
+    <div class="task">
+        <div class="task-name">báo cáo tài chính</div>
+        <div class="progress-bar">
+            <div class="progress" style="width: 30%;"></div>
+        </div>
+    </div>
+
+    <div class="task">
+        <div class="task-name">xây dựng trang web bán hàng trực tuyến</div>
+        <div class="progress-bar">
+            <div class="progress" style="width: 80%;"></div>
+        </div>
+    </div>
+
+</div>
+<p style="background-image: url('https://news.khangz.com/wp-content/uploads/2023/12/Kiem-tra-toc-do-danh-may-1-2.jpg');">
+</p>
+<input type="text" id="new-task" placeholder="Add a new task">
+    <button onclick="addTask()">Add Task</button>
+
+    <script>
+        function addTask() {
+            var taskInput = document.getElementById("new-task").value;
+            var taskList = document.getElementById("task-list");
+            var newTaskItem = document.createElement("li");
+            newTaskItem.textContent = taskInput;
+            taskList.appendChild(newTaskItem);
+        }
+    </script>
+</body>
+</html>
