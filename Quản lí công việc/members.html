@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Members Page</title>
+    <style>
+        /* Basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            background-image:url(https://www.erponline.vn/web/image/174774/Project.jpg);
+        }
+        header {
+            background-color: rgb(99, 187, 241);
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+        }
+        section {
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        footer {
+            background-color: rgb(99, 187, 241);
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>OUR MEMBERS</h1>
+    </header>
+    <main>
+        <section id="member-list">
+            <h2>Current Members</h2>
+            <ul>
+                <li>Nguyen Yen Nhi</li>
+                <li>Chu Thi Anh Hang</li>
+                <li>Tran Thi Huong Ly</li>
+                <li>Doan Thi Thu Huong</li>
+                <li>Vu Tuan Anh</li>
+                <li>Nguyen Hoang Kien</li>
+            </ul>
+        </section>
+        <section id="join">
+            <h2>Join Us!</h2>
+            <form action="submit_membership.php" method="post">
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name" required><br>
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required><br>
+                <input type="submit" value="Submit">
+            </form>
+        </section>
+    </main>
+</body>
+</html>
